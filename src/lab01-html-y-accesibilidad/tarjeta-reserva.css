@@ -1,0 +1,34 @@
+/* TODO (Lab 01):
+ * 1. Usa CSS Grid de 2 columnas en .reserva-grid para los dos campos.
+ * 2. Usa Flexbox en .reserva-acciones para alinear el botón y el mensaje de estado.
+ * 3. Agrega un indicador de foco visible con pseudoclase focus-visible para teclado.
+ */
+
+.reserva-card {
+  display: block;
+}
+
+.reserva-titulo {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.reserva-campo {
+  margin-bottom: 12px;
+}
+
+.reserva-etiqueta {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.reserva-boton-falso {
+  display: inline-block;
+  padding: 10px 16px;
+  border-radius: 8px;
+  background: #1d4ed8;
+  color: #ffffff;
+  font-weight: 600;
+  cursor: pointer;
+}
