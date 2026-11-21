@@ -1,6 +1,6 @@
 import type { LibroCatalogo } from "./contrato";
 
-// TODO (Lab 03 - Parte 1):
+// TODO (Paso 5 - Parte 1):
 // fetch no lanza error cuando el servidor responde HTTP 404 o 500.
 // Revisa response.ok antes de leer el JSON y lanza un Error con el código HTTP.
 export async function obtenerLibro(

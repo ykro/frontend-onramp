@@ -1,4 +1,5 @@
 import { type FormEvent, useState } from "react";
+import { leerPrecioSeguro } from "../paso04-tipos-y-formularios/precioSeguro";
 
 export interface Gasto {
   id: string;
@@ -11,15 +12,6 @@ const GASTOS_INICIALES: Gasto[] = [
   { id: "g-2", concepto: "Almuerzo", monto: 75 },
   { id: "g-3", concepto: "Libro de React", monto: 180 },
 ];
-
-// TODO (Lab 02 - Parte 1):
-// Los valores de un <input> siempre llegan como texto (string).
-// Reemplaza este atajo inseguro por una validación real sin usar `as number`:
-// devuelve null si está vacío, si no es un número finito o si es <= 0.
-export function leerPrecioSeguro(texto: string): number | null {
-  const convertido = Number(texto) as number;
-  return convertido;
-}
 
 function FilaGasto({ gasto }: { gasto: Gasto }) {
   const [nota, setNota] = useState("");
@@ -76,7 +68,7 @@ export function ListaGastos() {
       concepto: "Café rápido",
       monto: 25,
     };
-    // TODO (Lab 02 - Parte 2):
+    // TODO (Paso 3 - Parte 1):
     // Mutar el mismo arreglo con .push() mantiene la misma referencia y React (Object.is) no vuelve a pintar.
     // Reemplaza estas dos líneas por una actualización inmutable.
     gastos.push(nuevo);
@@ -99,7 +91,7 @@ export function ListaGastos() {
       monto,
     };
 
-    // TODO (Lab 02 - Parte 2):
+    // TODO (Paso 3 - Parte 1):
     // Mutar el mismo arreglo con .push() mantiene la misma referencia y React (Object.is) no vuelve a pintar.
     // Reemplaza estas dos líneas por una actualización inmutable.
     gastos.push(nuevo);
@@ -224,7 +216,7 @@ export function ListaGastos() {
           gap: "8px",
         }}
       >
-        {/* TODO (Lab 02 - Parte 3): usar el índice como key desordena las notas al filtrar. */}
+        {/* TODO (Paso 3 - Parte 2): usar el índice como key desordena las notas al filtrar. */}
         {visibles.map((gasto, index) => (
           <FilaGasto key={index} gasto={gasto} />
         ))}

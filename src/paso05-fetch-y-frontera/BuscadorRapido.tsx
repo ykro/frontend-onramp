@@ -1,4 +1,4 @@
-// TODO (Lab 03 - Parte 3):
+// TODO (Paso 5 - Parte 3):
 // 1. Agrega la directiva "use client"; en la primera línea de este archivo.
 // 2. Deja de importar desde "./secreto.server" e importa LIMITE_RESULTADOS desde "./contrato".
 import { useEffect, useState } from "react";
@@ -21,7 +21,7 @@ export function BuscadorRapido({ buscar }: BuscadorRapidoProps) {
       return;
     }
 
-    // TODO (Lab 03 - Parte 2):
+    // TODO (Paso 5 - Parte 2):
     // Esta búsqueda no cancela el intento anterior. Si una respuesta vieja (120 ms)
     // llega después de una nueva (15 ms), pisa la pantalla.
     // Usa AbortController y llama a controller.abort() en la limpieza del efecto.
