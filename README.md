@@ -19,6 +19,7 @@ El proyecto se divide en **cinco pasos independientes**. Si ya dominas HTML sem�
 ## Guías rápidas de lectura
 
 - [Cómo leer un ADR (`ARCHITECTURE_DECISIONS.md`)](docs/adr-ejemplo.md)
+- [Qué es la Integración Continua (CI) y GitHub Actions](docs/ci.md)
 - [Firebase Auth y Cloud Firestore en el navegador](docs/firebase.md)
 - [Glosario de frontend](docs/glosario.md)
 
