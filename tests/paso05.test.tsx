@@ -1,78 +1,32 @@
-import fs from "node:fs";
-import path from "node:path";
-import { render, screen, waitFor } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
 import { describe, expect, it } from "vitest";
-import { BuscadorRapido } from "../src/paso05-fetch-y-frontera/BuscadorRapido";
-import { obtenerLibro } from "../src/paso05-fetch-y-frontera/buscarCatalogo";
+import {
+  calcularTotalConDescuento,
+  calcularTotalConDescuentoConBug,
+} from "../src/paso05-pruebas/calcularDescuento";
 
-describe("Paso 5: Fetch, cancelación y frontera cliente/servidor", () => {
-  it("CA-5.1 lanza un error claro cuando fetch responde HTTP 404", async () => {
-    const fakeFetch: typeof fetch = async () =>
-      new Response(JSON.stringify({ mensaje: "No existe" }), {
-        status: 404,
-        headers: { "Content-Type": "application/json" },
-      });
-
-    await expect(obtenerLibro("999", fakeFetch)).rejects.toThrow(/404/);
+describe("Paso 5: Pruebas automatizadas desde cero con Vitest", () => {
+  it("CA-5.1 calcula correctamente un caso normal (por ejemplo, Q200 con 15 % de descuento)", () => {
+    // TODO (Paso 5 - Prueba 1):
+    // Aplica Arrange -> Act -> Assert con calcularTotalConDescuento(200, 15).
+    // Reemplaza la línea siguiente por tu expectativa real (170).
+    const total = calcularTotalConDescuento(200, 15);
+    expect(total).toBe(-1);
   });
 
-  it("CA-5.2 cancela la búsqueda lenta (120 ms) para que no pise la rápida (15 ms)", async () => {
-    const user = userEvent.setup();
-    const signalsPorTermino = new Map<string, AbortSignal>();
-
-    const buscar = (termino: string, signal: AbortSignal) => {
-      signalsPorTermino.set(termino, signal);
-      const demora = termino === "a" ? 120 : 15;
-
-      return new Promise<string[]>((resolve, reject) => {
-        const timer = setTimeout(() => {
-          if (signal.aborted) {
-            reject(new DOMException("Cancelada", "AbortError"));
-            return;
-          }
-          resolve(
-            termino === "a" ? ["Resultado viejo"] : ["Resultado nuevo"]
-          );
-        }, demora);
-
-        signal.addEventListener("abort", () => {
-          clearTimeout(timer);
-          reject(new DOMException("Cancelada", "AbortError"));
-        });
-      });
-    };
-
-    render(<BuscadorRapido buscar={buscar} />);
-    const campo = screen.getByLabelText(/buscar tema/i);
-
-    await user.type(campo, "a");
-    await user.type(campo, "b");
-
-    await waitFor(() => {
-      expect(screen.getByText("Resultado nuevo")).toBeInTheDocument();
-    });
-
-    // Espera más de 120 ms para confirmar que la respuesta lenta no pisó la rápida
-    await new Promise((resolve) => setTimeout(resolve, 160));
-
-    expect(signalsPorTermino.get("a")?.aborted).toBe(true);
-    expect(screen.getByText("Resultado nuevo")).toBeInTheDocument();
-    expect(screen.queryByText("Resultado viejo")).not.toBeInTheDocument();
+  it("CA-5.2 maneja los casos borde de 0 % y 100 % de descuento", () => {
+    // TODO (Paso 5 - Prueba 2):
+    // Verifica que con 0 % el total siga siendo el precio original (ej. 120)
+    // y que con 100 % el total sea 0.
+    const sinDescuento = calcularTotalConDescuento(120, 0);
+    const gratis = calcularTotalConDescuento(120, 100);
+    expect([sinDescuento, gratis]).toEqual([-1, -1]);
   });
 
-  it("CA-5.3 marca BuscadorRapido con 'use client' y no importa el módulo con secreto", () => {
-    const archivo = path.resolve(
-      process.cwd(),
-      "src/paso05-fetch-y-frontera/BuscadorRapido.tsx"
-    );
-    const codigo = fs.readFileSync(archivo, "utf-8");
-
-    expect(
-      codigo.trimStart().startsWith('"use client";') ||
-        codigo.trimStart().startsWith("'use client';")
-    ).toBe(true);
-    expect(codigo).not.toMatch(/secreto\.server/);
-    expect(codigo).not.toMatch(/API_SECRET_KEY/);
+  it("CA-5.3 atrapa el bug de calcularTotalConDescuentoConBug", () => {
+    // TODO (Paso 5 - Prueba 3):
+    // Comprueba que calcularTotalConDescuentoConBug(200, 15) NO devuelve 170
+    // (suma el descuento en lugar de restarlo y devuelve 230).
+    const resultadoConBug = calcularTotalConDescuentoConBug(200, 15);
+    expect(resultadoConBug).toBe(170);
   });
 });
