@@ -1,5 +1,7 @@
 // TODO (Paso 4 - Parte 3): Este componente corre en el navegador, pero importa el límite desde
-// un módulo que también guarda una llave secreta, así que la llave termina en el bundle.
+// un módulo que también guarda una llave secreta. Hoy Vite descarta la llave al armar el bundle
+// porque nadie la usa, pero basta que alguien llame aquí a `construirCabeceraPrivada` para que
+// la llave viaje al navegador. El límite no debería depender de un archivo con secretos.
 // Además, falta marcarlo como componente de cliente con la directiva de Next.js
 // (Vite la ignora; aquí practicas la convención que usarás en el curso).
 import { useEffect, useState } from "react";

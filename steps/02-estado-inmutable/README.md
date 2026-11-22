@@ -2,7 +2,7 @@
 
 ![Paso 2. Estado inmutable y keys estables](diagrams/estado-inmutable.svg)
 
-Este paso toma unos 20 minutos.
+Este paso toma unos 30 minutos.
 
 ## Antes de empezar
 
@@ -13,6 +13,13 @@ Este paso toma unos 20 minutos.
 ## Por qué importa
 
 Dos errores aparecen una y otra vez en proyectos de React. El primero es mutar un arreglo del estado con `.push()`. React compara el estado anterior con el nuevo usando [`Object.is`](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Object/is), que solo revisa si es el mismo objeto en memoria, así que no ve el cambio y no vuelve a dibujar ([actualizar arreglos en el estado](https://es.react.dev/learn/updating-arrays-in-state)). El segundo es usar el índice como [`key`](https://es.react.dev/learn/rendering-lists#keeping-list-items-in-order-with-key), que mezcla el estado de una fila con otra cuando la lista se filtra o se reordena. En el curso vas a manejar listas de gastos, tareas y mensajes, y los dos errores aparecen ahí.
+
+## Lo mínimo que necesitas saber
+
+- **Referencias.** Igual que en Java, una variable de arreglo u objeto guarda una referencia, no una copia. Si `b = a`, las dos apuntan al mismo arreglo en memoria y `b.push(3)` también cambia `a`.
+- **Métodos que modifican y métodos que copian.** `push`, `splice` y `sort` modifican el arreglo original. `map`, `filter` y `concat` devuelven un arreglo nuevo y dejan el original intacto.
+- **Spread.** `[...lista, nuevo]` crea un arreglo nuevo con los elementos de `lista` y uno más al final. `{ ...gasto, nota: "x" }` hace lo mismo con un objeto. Pruébalo en la consola del navegador y compara con `===`.
+- **Por qué le importa a React.** Para decidir si redibuja, React compara la referencia anterior con la nueva. Si es el mismo arreglo, asume que nada cambió, aunque adentro haya un elemento más.
 
 ## Qué vas a hacer
 
@@ -29,7 +36,7 @@ Dos errores aparecen una y otra vez en proyectos de React. El primero es mutar u
 
 1. Si borraras un gasto con `gastos.splice(i, 1)` y luego `setGastos(gastos)`, ¿qué pasaría en pantalla? ¿Qué método de arreglos devuelve un arreglo nuevo sin el elemento?
 2. ¿Por qué `key={Math.random()}` tampoco sirve, aunque cada valor sea distinto?
-3. El formulario usa `setGastos((prev) => ...)` con una función en lugar de un valor. ¿Qué problema evita esa forma si dos clics llegan muy seguidos?
+3. El formulario usa `setGastos((prev) => ...)` con una función en lugar de un valor. Si dentro del mismo clic llamaras dos veces a `setGastos([...gastos, nuevo])`, ¿cuántos gastos se agregarían? ¿Y si lo haces dos veces con la forma de función?
 4. Explica en tres líneas, con tus palabras, qué cambiaste y por qué. Si no puedes, vuelve a la pista 1 antes de seguir.
 
 ## Cómo verificar

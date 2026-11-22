@@ -6,22 +6,22 @@ Este repositorio es un on-ramp, una nivelación práctica para llegar con lo mí
 
 ## Por dónde empezar
 
-Si es tu primera vez con React, sigue los pasos del 0 al 5 en orden; el recorrido completo toma unas dos horas y media. Si ya hiciste interfaces con React, haz el Paso 0 de todas formas (son minutos y confirma tu entorno) y luego elige el paso que necesites, porque cada uno se verifica por separado.
+Si es tu primera vez con React, sigue los pasos del 0 al 5 en orden; el recorrido completo toma unas tres horas y media. Si ya hiciste interfaces con React, haz el Paso 0 de todas formas (son minutos y confirma tu entorno) y luego elige el paso que necesites, porque cada uno se verifica por separado.
 
-Cada paso sigue la misma forma. Empieza con tres preguntas para pensar antes de tocar código, explica por qué importa para el curso, te pide leer, depurar y escribir algo pequeño, y cierra con preguntas sobre un caso nuevo. Si te trabas, cada paso tiene tres pistas que van de la idea general a un esqueleto de código.
+Cada paso sigue la misma forma. Empieza con tres preguntas para pensar antes de tocar código, explica por qué importa para el curso, te pide leer, debuguear y escribir algo pequeño, y cierra con preguntas sobre un caso nuevo. Si te trabas, cada paso tiene tres pistas que van de la idea general a un esqueleto de código.
 
 | Paso | Tiempo | Qué practicas | Archivo | Guía |
 | --- | --- | --- | --- | --- |
-| Paso 0 | 25 min | Instalar Node, levantar Vite y escribir tu primer componente con props, `useState` y `map` | [Saludo.tsx](src/paso00-hola/Saludo.tsx) | [steps/00-entorno-y-primer-componente](steps/00-entorno-y-primer-componente/README.md) |
-| Paso 1 | 35 min | HTML semántico, roles y nombres accesibles, errores conectados al campo, Grid, Flexbox y `:focus-visible` | [TarjetaReserva.tsx](src/paso01-html-accesibilidad-y-css/TarjetaReserva.tsx) | [steps/01-html-accesibilidad-y-css](steps/01-html-accesibilidad-y-css/README.md) |
-| Paso 2 | 20 min | Estado inmutable (`Object.is`) y `key` estable al filtrar listas | [ListaGastos.tsx](src/paso02-estado-inmutable/ListaGastos.tsx) | [steps/02-estado-inmutable](steps/02-estado-inmutable/README.md) |
-| Paso 3 | 15 min | Convertir el texto de un `<input>` en número con validación y narrowing, sin `as` | [precioSeguro.ts](src/paso03-tipos-y-formularios/precioSeguro.ts) | [steps/03-tipos-y-formularios](steps/03-tipos-y-formularios/README.md) |
-| Paso 4 | 30 min | `response.ok`, cancelar búsquedas con `AbortController` y la frontera entre cliente y servidor | [BuscadorRapido.tsx](src/paso04-fetch-y-frontera/BuscadorRapido.tsx) | [steps/04-fetch-y-frontera](steps/04-fetch-y-frontera/README.md) |
-| Paso 5 | 25 min | Tests desde cero con Vitest que se ponen en rojo ante una versión con un bug | [tests/paso05.test.tsx](tests/paso05.test.tsx) | [steps/05-pruebas-desde-cero](steps/05-pruebas-desde-cero/README.md) |
+| Paso 0 | 30 min | Instalar Node, levantar Vite y escribir tu primer componente con props, `useState` y `map` | [Saludo.tsx](src/paso00-hola/Saludo.tsx) | [steps/00-entorno-y-primer-componente](steps/00-entorno-y-primer-componente/README.md) |
+| Paso 1 | 45 min | HTML semántico, roles y nombres accesibles, errores conectados al campo, Grid, Flexbox y `:focus-visible` | [TarjetaReserva.tsx](src/paso01-html-accesibilidad-y-css/TarjetaReserva.tsx) | [steps/01-html-accesibilidad-y-css](steps/01-html-accesibilidad-y-css/README.md) |
+| Paso 2 | 30 min | Estado inmutable (`Object.is`) y `key` estable al filtrar listas | [ListaGastos.tsx](src/paso02-estado-inmutable/ListaGastos.tsx) | [steps/02-estado-inmutable](steps/02-estado-inmutable/README.md) |
+| Paso 3 | 20 min | Convertir el texto de un `<input>` en número con validación y narrowing, sin `as` | [precioSeguro.ts](src/paso03-tipos-y-formularios/precioSeguro.ts) | [steps/03-tipos-y-formularios](steps/03-tipos-y-formularios/README.md) |
+| Paso 4 | 45 min | `response.ok`, cancelar búsquedas con `AbortController` y la frontera entre cliente y servidor | [BuscadorRapido.tsx](src/paso04-fetch-y-frontera/BuscadorRapido.tsx) | [steps/04-fetch-y-frontera](steps/04-fetch-y-frontera/README.md) |
+| Paso 5 | 30 min | Tests desde cero con Vitest que se ponen en rojo ante dos versiones con un bug | [tests/paso05.test.tsx](tests/paso05.test.tsx) | [steps/05-pruebas-desde-cero](steps/05-pruebas-desde-cero/README.md) |
 
 ## Inicio rápido
 
-1. Instala [Node.js](https://nodejs.org/en/download) 24, la versión que indica `.nvmrc`, y clona este repositorio.
+1. Instala [Node.js](https://nodejs.org/en/download) 24, la versión que indica `.nvmrc`, y clona este repositorio con `git clone https://github.com/ykro/frontend-onramp.git` (el [Paso 0](steps/00-entorno-y-primer-componente/README.md) explica la terminal si nunca la has usado).
 2. Corre `npm install` en la raíz.
 3. Corre `npm run dev` y abre la URL que imprime Vite. Cada paso tiene su pestaña.
 4. Sigue el [Paso 0](steps/00-entorno-y-primer-componente/README.md) y verifica cada paso con `npm run check:paso0` hasta `npm run check:paso5`. `npm run check` corre todos juntos y `npm run build` confirma que el proyecto compila.
