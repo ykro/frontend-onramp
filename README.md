@@ -17,7 +17,7 @@ Cada paso sigue la misma forma. Empieza con tres preguntas para pensar antes de 
 | Paso 2 | 30 min | Estado inmutable (`Object.is`) y `key` estable al filtrar listas | [ListaGastos.tsx](src/paso02-estado-inmutable/ListaGastos.tsx) | [steps/02-estado-inmutable](steps/02-estado-inmutable/README.md) |
 | Paso 3 | 20 min | Convertir el texto de un `<input>` en número con validación y narrowing, sin `as` | [precioSeguro.ts](src/paso03-tipos-y-formularios/precioSeguro.ts) | [steps/03-tipos-y-formularios](steps/03-tipos-y-formularios/README.md) |
 | Paso 4 | 45 min | `response.ok`, cancelar búsquedas con `AbortController` y la frontera entre cliente y servidor | [BuscadorRapido.tsx](src/paso04-fetch-y-frontera/BuscadorRapido.tsx) | [steps/04-fetch-y-frontera](steps/04-fetch-y-frontera/README.md) |
-| Paso 5 | 30 min | Tests desde cero con Vitest que se ponen en rojo ante dos versiones con un bug | [tests/paso05.test.tsx](tests/paso05.test.tsx) | [steps/05-pruebas-desde-cero](steps/05-pruebas-desde-cero/README.md) |
+| Paso 5 | 40 min | Tests desde cero con Vitest que se ponen en rojo ante dos versiones con un bug, y un test de componente con `getByRole` | [tests/paso05.test.tsx](tests/paso05.test.tsx) | [steps/05-pruebas-desde-cero](steps/05-pruebas-desde-cero/README.md) |
 
 ## Inicio rápido
 
