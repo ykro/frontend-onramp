@@ -6,8 +6,8 @@ import { describe, it } from "vitest";
 // y el componente desde "../src/paso05-pruebas/ResumenDescuento".
 
 describe("calcularTotalConDescuento", () => {
-  it.todo("aplica el descuento en un caso normal");
-  it.todo("respeta los edge cases de 0 % y 100 %");
-  it.todo("rechaza datos fuera de rango");
-  it.todo("muestra el total en ResumenDescuento");
+  it.todo("caso normal");
+  it.todo("un edge case que elijas");
+  it.todo("un caso que atrape la otra versión");
+  it.todo("componente");
 });

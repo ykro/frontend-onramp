@@ -1,4 +1,4 @@
-import { type FormEvent, useState } from "react";
+import { type FormEvent, useEffect, useState } from "react";
 import { leerPrecioSeguro } from "../paso03-tipos-y-formularios/precioSeguro";
 
 export interface Gasto {
@@ -60,7 +60,11 @@ export function ListaGastos() {
     ? gastos.filter((item) => item.monto > 50)
     : gastos;
 
-  const total = visibles.reduce((suma, item) => suma + item.monto, 0);
+  // TODO (Paso 2 - Parte 1): Hoy el total visible no cambia al activar el filtro.
+  const [total, setTotal] = useState(0);
+  useEffect(() => {
+    setTotal(gastos.reduce((suma, item) => suma + item.monto, 0));
+  }, [gastos]);
 
   function agregarCafeRapido() {
     const nuevo: Gasto = {
@@ -68,7 +72,7 @@ export function ListaGastos() {
       concepto: "Café rápido",
       monto: 25,
     };
-    // TODO (Paso 2 - Parte 1): Hoy el gasto entra al arreglo, pero la lista y el total no
+    // TODO (Paso 2 - Parte 2): Hoy el gasto entra al arreglo, pero la lista y el total no
     // cambian en pantalla. React no se entera del cambio.
     gastos.push(nuevo);
     setGastos(gastos);
@@ -90,11 +94,7 @@ export function ListaGastos() {
       monto,
     };
 
-    // TODO (Paso 2 - Parte 1): Hoy el gasto entra al arreglo, pero la lista y el total no
-    // cambian en pantalla. React no se entera del cambio.
-    gastos.push(nuevo);
-    setGastos(gastos);
-
+    setGastos((prev) => [...prev, nuevo]);
     setConcepto("");
     setMontoTexto("");
     setError(null);
@@ -214,7 +214,7 @@ export function ListaGastos() {
           gap: "8px",
         }}
       >
-        {/* TODO (Paso 2 - Parte 2): Hoy, al activar el filtro, las notas saltan a otra fila. */}
+        {/* TODO (Paso 2 - Parte 3): Hoy, al activar el filtro, las notas saltan a otra fila. */}
         {visibles.map((gasto, index) => (
           <FilaGasto key={index} gasto={gasto} />
         ))}

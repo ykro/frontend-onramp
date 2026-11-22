@@ -6,7 +6,7 @@ Este repositorio es un on-ramp, una nivelación práctica para llegar con lo mí
 
 ## Por dónde empezar
 
-Si es tu primera vez con React, sigue los pasos del 0 al 5 en orden; el recorrido completo toma unas tres horas y media. Si ya hiciste interfaces con React, haz el Paso 0 de todas formas (son minutos y confirma tu entorno) y luego elige el paso que necesites, porque cada uno se verifica por separado.
+Si es tu primera vez con React, sigue los pasos del 0 al 5 en orden; el recorrido completo toma unas tres horas y media. Para la Unidad 1 bastan los pasos 0, 1 (solo `CA-1.1` y `CA-1.2`), 2, 3 y 5, menos de tres horas; haz el CSS del Paso 1 y el Paso 4 antes de la Unidad 2.
 
 Cada paso sigue la misma forma. Empieza con tres preguntas para pensar antes de tocar código, explica por qué importa para el curso, te pide leer, debuguear y escribir algo pequeño, y cierra con preguntas sobre un caso nuevo. Si te trabas, cada paso tiene tres pistas que van de la idea general a un esqueleto de código.
 
@@ -15,7 +15,7 @@ Cada paso sigue la misma forma. Empieza con tres preguntas para pensar antes de 
 | Paso 0 | 30 min | Instalar Node, levantar Vite y escribir tu primer componente con props, `useState` y `map` | [Saludo.tsx](src/paso00-hola/Saludo.tsx) | [steps/00-entorno-y-primer-componente](steps/00-entorno-y-primer-componente/README.md) |
 | Paso 1 | 45 min | HTML semántico, roles y nombres accesibles, errores conectados al campo, Grid, Flexbox y `:focus-visible` | [TarjetaReserva.tsx](src/paso01-html-accesibilidad-y-css/TarjetaReserva.tsx) | [steps/01-html-accesibilidad-y-css](steps/01-html-accesibilidad-y-css/README.md) |
 | Paso 2 | 30 min | Estado inmutable (`Object.is`) y `key` estable al filtrar listas | [ListaGastos.tsx](src/paso02-estado-inmutable/ListaGastos.tsx) | [steps/02-estado-inmutable](steps/02-estado-inmutable/README.md) |
-| Paso 3 | 20 min | Convertir el texto de un `<input>` en número con validación y narrowing, sin `as` | [precioSeguro.ts](src/paso03-tipos-y-formularios/precioSeguro.ts) | [steps/03-tipos-y-formularios](steps/03-tipos-y-formularios/README.md) |
+| Paso 3 | 35 min | Validar el texto de un `<input>` con narrowing y luego con un esquema Zod | [precioSeguro.ts](src/paso03-tipos-y-formularios/precioSeguro.ts), [filtroPrecio.ts](src/paso03-tipos-y-formularios/filtroPrecio.ts) | [steps/03-tipos-y-formularios](steps/03-tipos-y-formularios/README.md) |
 | Paso 4 | 45 min | `response.ok`, cancelar búsquedas con `AbortController` y la frontera entre cliente y servidor | [BuscadorRapido.tsx](src/paso04-fetch-y-frontera/BuscadorRapido.tsx) | [steps/04-fetch-y-frontera](steps/04-fetch-y-frontera/README.md) |
 | Paso 5 | 40 min | Tests desde cero con Vitest que se ponen en rojo ante dos versiones con un bug, y un test de componente con `getByRole` | [tests/paso05.test.tsx](tests/paso05.test.tsx) | [steps/05-pruebas-desde-cero](steps/05-pruebas-desde-cero/README.md) |
 
@@ -36,6 +36,7 @@ Al inicio todos los checks fallan a propósito; cada uno pasa cuando resuelves s
 | `npm install` muestra `EBADENGINE` o errores raros de sintaxis | Tu Node es más viejo que el que pide el proyecto | Revisa `node -v`; debe empezar con `v24`. Con nvm, corre `nvm use` en la raíz del repo |
 | `npm run dev` dice que el puerto `5173` está ocupado | Otro servidor de Vite sigue abierto | Vite prueba el siguiente puerto solo; usa la URL que imprime o cierra el otro con `Ctrl+C` |
 | La página sale en blanco | Hay un error de JavaScript | Abre la consola del navegador (clic derecho, **Inspeccionar**, **Console**) y lee la primera línea roja |
+| `check:pasoN` marca un error de tipos en otro paso | El check revisa los tipos de todo el proyecto, así que un paso a medias rompe los demás | Termina o deshaz el cambio a medias en ese otro archivo |
 | `check:pasoN` dice `Cannot find module` | Falta `npm install` o lo corriste en otra carpeta | Corre `npm install` en la raíz del repo, donde está `package.json` |
 
 ## Lecturas cortas y uso de IA
