@@ -1,6 +1,7 @@
-// TODO (Paso 4 - Parte 3):
-// 1. Agrega la directiva "use client"; en la primera línea de este archivo.
-// 2. Deja de importar desde "./secreto.server" e importa LIMITE_RESULTADOS desde "./contrato".
+// TODO (Paso 4 - Parte 3): Este componente corre en el navegador, pero importa el límite desde
+// un módulo que también guarda una llave secreta, así que la llave termina en el bundle.
+// Además, falta marcarlo como componente de cliente con la directiva de Next.js
+// (Vite la ignora; aquí practicas la convención que usarás en el curso).
 import { useEffect, useState } from "react";
 import { LIMITE_RESULTADOS } from "./secreto.server";
 
@@ -21,10 +22,8 @@ export function BuscadorRapido({ buscar }: BuscadorRapidoProps) {
       return;
     }
 
-    // TODO (Paso 4 - Parte 2):
-    // Esta búsqueda no cancela el intento anterior. Si una respuesta vieja (120 ms)
-    // llega después de una nueva (15 ms), pisa la pantalla.
-    // Usa AbortController y llama a controller.abort() en la limpieza del efecto.
+    // TODO (Paso 4 - Parte 2): Hoy, si una búsqueda vieja (120 ms) responde después de una
+    // nueva (15 ms), pisa la pantalla con resultados que ya no corresponden al texto.
     const controller = new AbortController();
     setCargando(true);
 

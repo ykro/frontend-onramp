@@ -68,9 +68,8 @@ export function ListaGastos() {
       concepto: "Café rápido",
       monto: 25,
     };
-    // TODO (Paso 2 - Parte 1):
-    // Mutar el mismo arreglo con .push() mantiene la misma referencia y React (Object.is) no vuelve a pintar.
-    // Reemplaza estas dos líneas por una actualización inmutable.
+    // TODO (Paso 2 - Parte 1): Hoy el gasto entra al arreglo, pero la lista y el total no
+    // cambian en pantalla. React no se entera del cambio.
     gastos.push(nuevo);
     setGastos(gastos);
   }
@@ -91,9 +90,8 @@ export function ListaGastos() {
       monto,
     };
 
-    // TODO (Paso 2 - Parte 1):
-    // Mutar el mismo arreglo con .push() mantiene la misma referencia y React (Object.is) no vuelve a pintar.
-    // Reemplaza estas dos líneas por una actualización inmutable.
+    // TODO (Paso 2 - Parte 1): Hoy el gasto entra al arreglo, pero la lista y el total no
+    // cambian en pantalla. React no se entera del cambio.
     gastos.push(nuevo);
     setGastos(gastos);
 
@@ -216,7 +214,7 @@ export function ListaGastos() {
           gap: "8px",
         }}
       >
-        {/* TODO (Paso 2 - Parte 2): usar el índice como key desordena las notas al filtrar. */}
+        {/* TODO (Paso 2 - Parte 2): Hoy, al activar el filtro, las notas saltan a otra fila. */}
         {visibles.map((gasto, index) => (
           <FilaGasto key={index} gasto={gasto} />
         ))}

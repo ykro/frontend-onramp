@@ -1,41 +1,53 @@
-# Onramp Frontend
+# Frontend On-Ramp
 
-Este repositorio es un **onramp** práctico y autoevaluable de 60 minutos para preparar tu entrada a [frontend-course](https://github.com/ykro/frontend-course). Forma parte del índice de kits de nivelación [courses-onramp](https://github.com/ykro/courses-onramp).
+Este repositorio es un on-ramp, una nivelación práctica para llegar con lo mínimo al [curso de Frontend con React y Next.js](https://github.com/ykro/frontend-course). Está pensado para estudiantes que ya programan (estructuras de datos, algoritmos, orientación a objetos) pero no han construido una interfaz web con React. Todo corre en tu computadora con Node.js y Vite, sin cuentas externas.
 
-El proyecto se divide en **cinco pasos independientes**. Si ya dominas HTML semántico y CSS, puedes arrancar directo en el Paso 2, el Paso 3, el Paso 4 o el Paso 5 sin haber completado los anteriores, y verificar cada paso por separado.
+![Mapa de Frontend On-Ramp](docs/diagrams/overview.svg)
 
-![Mapa del Onramp Frontend](docs/diagrams/overview.svg)
+## Por dónde empezar
 
-## Los 5 pasos (independientes)
+Si es tu primera vez con React, sigue los pasos del 0 al 5 en orden; el recorrido completo toma unas dos horas y media. Si ya hiciste interfaces con React, haz el Paso 0 de todas formas (son minutos y confirma tu entorno) y luego elige el paso que necesites, porque cada uno se verifica por separado.
 
-| Paso | Enfoque | Verificación | Guía |
-| --- | --- | --- | --- |
-| Paso 1 | HTML semántico, teclado, roles `ByRole`, `aria-describedby`, CSS Grid de 2 columnas, Flexbox y `:focus-visible` | `npm run check:paso1` | [steps/01-html-accesibilidad-y-css/README.md](steps/01-html-accesibilidad-y-css/README.md) |
-| Paso 2 | Estado inmutable en React (`Object.is`) y `key` estable por `id` al filtrar | `npm run check:paso2` | [steps/02-estado-inmutable/README.md](steps/02-estado-inmutable/README.md) |
-| Paso 3 | Conversión segura de texto de `<input>` y narrowing en TypeScript sin `as number` | `npm run check:paso3` | [steps/03-tipos-y-formularios/README.md](steps/03-tipos-y-formularios/README.md) |
-| Paso 4 | `response.ok` en `fetch`, cancelación con `AbortController` y frontera `"use client"` | `npm run check:paso4` | [steps/04-fetch-y-frontera/README.md](steps/04-fetch-y-frontera/README.md) |
-| Paso 5 | Pruebas automatizadas desde cero con Vitest y Testing Library (caso normal, bordes 0 % / 100 % y bug real) | `npm run check:paso5` | [steps/05-pruebas-desde-cero/README.md](steps/05-pruebas-desde-cero/README.md) |
+Cada paso sigue la misma forma. Empieza con tres preguntas para pensar antes de tocar código, explica por qué importa para el curso, te pide leer, depurar y escribir algo pequeño, y cierra con preguntas sobre un caso nuevo. Si te trabas, cada paso tiene tres pistas que van de la idea general a un esqueleto de código.
 
-## Guías rápidas de lectura
-
-- [Cómo leer un ADR (`ARCHITECTURE_DECISIONS.md`)](docs/adr-ejemplo.md)
-- [Qué es la Integración Continua (CI) y GitHub Actions](docs/ci.md)
-- [Firebase Auth y Cloud Firestore en el navegador](docs/firebase.md)
-- [Glosario de frontend](docs/glosario.md)
+| Paso | Tiempo | Qué practicas | Archivo | Guía |
+| --- | --- | --- | --- | --- |
+| Paso 0 | 25 min | Instalar Node, levantar Vite y escribir tu primer componente con props, `useState` y `map` | [Saludo.tsx](src/paso00-hola/Saludo.tsx) | [steps/00-entorno-y-primer-componente](steps/00-entorno-y-primer-componente/README.md) |
+| Paso 1 | 35 min | HTML semántico, roles y nombres accesibles, errores conectados al campo, Grid, Flexbox y `:focus-visible` | [TarjetaReserva.tsx](src/paso01-html-accesibilidad-y-css/TarjetaReserva.tsx) | [steps/01-html-accesibilidad-y-css](steps/01-html-accesibilidad-y-css/README.md) |
+| Paso 2 | 20 min | Estado inmutable (`Object.is`) y `key` estable al filtrar listas | [ListaGastos.tsx](src/paso02-estado-inmutable/ListaGastos.tsx) | [steps/02-estado-inmutable](steps/02-estado-inmutable/README.md) |
+| Paso 3 | 15 min | Convertir el texto de un `<input>` en número con validación y narrowing, sin `as` | [precioSeguro.ts](src/paso03-tipos-y-formularios/precioSeguro.ts) | [steps/03-tipos-y-formularios](steps/03-tipos-y-formularios/README.md) |
+| Paso 4 | 30 min | `response.ok`, cancelar búsquedas con `AbortController` y la frontera entre cliente y servidor | [BuscadorRapido.tsx](src/paso04-fetch-y-frontera/BuscadorRapido.tsx) | [steps/04-fetch-y-frontera](steps/04-fetch-y-frontera/README.md) |
+| Paso 5 | 25 min | Tests desde cero con Vitest que se ponen en rojo ante una versión con un bug | [tests/paso05.test.tsx](tests/paso05.test.tsx) | [steps/05-pruebas-desde-cero](steps/05-pruebas-desde-cero/README.md) |
 
 ## Inicio rápido
 
-1. Clona este repositorio con Node.js 24 (definido en `.nvmrc`) e instala dependencias con `npm install`.
-2. Abre la interfaz interactiva en tu navegador con `npm run dev` para probar los cinco pasos en vivo.
-3. Valida el paso que elijas con `npm run check:paso1` hasta `npm run check:paso5`, o ejecuta `npm run check` para correr la revisión de tipos y las 12 pruebas juntas. Al inicio, los tipos pasan en verde y las 12 pruebas fallan a propósito hasta que resuelvas cada paso.
-4. Al terminar, confirma que el paquete de producción se construye sin errores con `npm run build`.
+1. Instala [Node.js](https://nodejs.org/en/download) 24, la versión que indica `.nvmrc`, y clona este repositorio.
+2. Corre `npm install` en la raíz.
+3. Corre `npm run dev` y abre la URL que imprime Vite. Cada paso tiene su pestaña.
+4. Sigue el [Paso 0](steps/00-entorno-y-primer-componente/README.md) y verifica cada paso con `npm run check:paso0` hasta `npm run check:paso5`. `npm run check` corre todos juntos y `npm run build` confirma que el proyecto compila.
 
-Puedes usar asistentes de IA libremente mientras trabajas: el archivo [AGENTS.md](AGENTS.md) configura al asistente en modo tutor socrático para explicarte cada concepto y darte pistas concretas sin saltarte el aprendizaje.
+Al inicio todos los checks fallan a propósito; cada uno pasa cuando resuelves su paso.
 
-Si quieres comparar tu trabajo o revisar los archivos resueltos paso por paso, consulta el [repositorio de solución](https://github.com/ykro/frontend-onramp-solution).
+## Errores comunes al preparar el entorno
 
-## Enlaces relacionados
+| Lo que ves | Qué significa | Qué hacer |
+| --- | --- | --- |
+| `npm: command not found` o `node: command not found` | Node.js no está instalado o la terminal no lo encuentra | Instala Node 24 desde [nodejs.org](https://nodejs.org/en/download) o con `nvm install`, cierra y abre la terminal |
+| `npm install` muestra `EBADENGINE` o errores raros de sintaxis | Tu Node es más viejo que el que pide el proyecto | Revisa `node -v`; debe empezar con `v24`. Con nvm, corre `nvm use` en la raíz del repo |
+| `npm run dev` dice que el puerto `5173` está ocupado | Otro servidor de Vite sigue abierto | Vite prueba el siguiente puerto solo; usa la URL que imprime o cierra el otro con `Ctrl+C` |
+| La página sale en blanco | Hay un error de JavaScript | Abre la consola del navegador (clic derecho, **Inspeccionar**, **Console**) y lee la primera línea roja |
+| `check:pasoN` dice `Cannot find module` | Falta `npm install` o lo corriste en otra carpeta | Corre `npm install` en la raíz del repo, donde está `package.json` |
 
-- Índice de kits de nivelación: [ykro/courses-onramp](https://github.com/ykro/courses-onramp)
-- Curso principal de Frontend: [ykro/frontend-course](https://github.com/ykro/frontend-course)
-- Solución de referencia: [ykro/frontend-onramp-solution](https://github.com/ykro/frontend-onramp-solution)
+## Lecturas cortas y uso de IA
+
+- El [glosario](docs/glosario.md) explica cada término con un enlace a la documentación oficial.
+- [Cómo leer un ADR](docs/adr-ejemplo.md) te prepara para el `ARCHITECTURE_DECISIONS.md` del curso.
+- [Qué es la Integración Continua (CI)](docs/ci.md) explica qué corre GitHub Actions cuando haces push.
+- [Firebase Auth y Cloud Firestore](docs/firebase.md) muestra la frontera entre cliente y servidor que usarás en el curso.
+- Puedes usar tu asistente de IA (Claude Code, Antigravity, Codex o Gemini CLI). [AGENTS.md](AGENTS.md) le pide que te guíe con preguntas y pistas antes de mostrarte código. Si aceptas código que no puedes explicar con tus palabras, el on-ramp pierde su sentido.
+
+## Repositorios relacionados
+
+- Índice de on-ramps: [ykro/courses-onramp](https://github.com/ykro/courses-onramp)
+- Curso principal: [ykro/frontend-course](https://github.com/ykro/frontend-course)
+- Solución de referencia, con las respuestas de autoevaluación de cada paso: [ykro/frontend-onramp-solution](https://github.com/ykro/frontend-onramp-solution)

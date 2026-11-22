@@ -1,8 +1,7 @@
 import type { LibroCatalogo } from "./contrato";
 
-// TODO (Paso 4 - Parte 1):
-// fetch no lanza error cuando el servidor responde HTTP 404 o 500.
-// Revisa response.ok antes de leer el JSON y lanza un Error con el código HTTP.
+// TODO (Paso 4 - Parte 1): Hoy, si el servidor responde 404 o 500, esta función lee el cuerpo
+// como si fuera un libro. Debe rechazar con un Error que mencione el código HTTP.
 export async function obtenerLibro(
   id: string,
   fetcher: typeof fetch = fetch

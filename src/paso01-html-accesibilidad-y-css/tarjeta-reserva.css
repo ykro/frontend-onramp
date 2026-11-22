@@ -1,7 +1,8 @@
 /* TODO (Paso 1 - CSS):
- * 1. Usa CSS Grid de 2 columnas en .reserva-grid para los dos campos.
- * 2. Usa Flexbox en .reserva-acciones para alinear el botón y el mensaje de estado.
- * 3. Agrega un indicador de foco visible con pseudoclase focus-visible para teclado.
+ * 1. Hoy los dos campos quedan uno debajo del otro. En pantallas anchas van en dos columnas
+ *    y en pantallas angostas (600 px o menos) vuelven a una sola.
+ * 2. Hoy el botón y el mensaje de confirmación no quedan alineados en una misma fila.
+ * 3. Hoy, al navegar con Tab, no se ve qué campo o botón tiene el foco.
  */
 
 .reserva-card {
