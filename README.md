@@ -24,7 +24,7 @@ Cada paso sigue la misma forma. Empieza con tres preguntas para pensar antes de 
 1. Instala [Node.js](https://nodejs.org/en/download) 24, la versión que indica `.nvmrc`, y clona este repositorio con `git clone https://github.com/ykro/frontend-onramp.git` (el [Paso 0](steps/00-entorno-y-primer-componente/README.md) explica la terminal si nunca la has usado).
 2. Corre `npm install` en la raíz.
 3. Corre `npm run dev` y abre la URL que imprime Vite. Cada paso tiene su pestaña.
-4. Sigue el [Paso 0](steps/00-entorno-y-primer-componente/README.md) y verifica cada paso con `npm run check:paso0` hasta `npm run check:paso5`. `npm run check` corre todos juntos y `npm run build` confirma que el proyecto compila.
+4. Sigue el [Paso 0](steps/00-entorno-y-primer-componente/README.md) y verifica cada paso con `npm run check:paso0` hasta `npm run check:paso5`. `npm run check:u1` verifica solo lo necesario para empezar la Unidad 1, `npm run check` corre todos los pasos juntos y `npm run build` confirma que el proyecto compila.
 
 Al inicio todos los checks fallan a propósito; cada uno pasa cuando resuelves su paso.
 

@@ -18,7 +18,7 @@ Todo lo que escribe una persona en un `<input>` llega como texto, aunque el camp
 
 - **Uniones de tipos.** `number | null` significa «un número o nada». TypeScript te obliga a revisar el `null` antes de usar el valor como número.
 - **Narrowing.** Después de `if (typeof x === "number")` o de `if (resultado === null) return`, TypeScript sabe qué tipo queda en las líneas siguientes. La revisión corre de verdad, a diferencia de `as`.
-- **Zod.** En el curso no escribirás esos `if` a mano. Un esquema de [Zod](https://zod.dev) declara las reglas (`z.coerce.number().positive()`) y `safeParse` devuelve el dato con su tipo o la lista de errores, sin lanzar. Una regla que compara dos campos va en `superRefine`. En la U1, React Hook Form usa ese mismo esquema para todo el formulario.
+- **Zod.** En el curso no escribirás esos `if` a mano. Un esquema de [Zod](https://zod.dev) declara las reglas (`z.coerce.number().positive()`) y `safeParse` devuelve el dato con su tipo o la lista de errores, sin lanzar. Una regla que compara dos campos va en `superRefine` y registra el fallo con `ctx.addIssue({ code: "custom", path: ["maximo"], message: "..." })`. En la U1, React Hook Form usa ese mismo esquema para todo el formulario.
 
 ## Qué vas a hacer
 
@@ -37,7 +37,7 @@ Todo lo que escribe una persona en un `<input>` llega como texto, aunque el camp
 
 1. ¿Qué devuelve tu función con `"Infinity"` y con `"1e3"`? ¿Te parece correcto para un monto en quetzales?
 2. Si el formulario aceptara montos con coma decimal (`"45,50"`), ¿qué devolvería tu función hoy y dónde harías el cambio?
-3. ¿Por qué la función devuelve `number | null` en lugar de lanzar un error? Piensa en quién la llama y qué hace con el resultado.
+3. ¿Por qué `leerPrecioSeguro` devuelve `number | null` y `FiltroPrecio.safeParse` devuelve `{ success: false, error }` en lugar de lanzar una excepción? Además, ¿por qué la comparación entre `maximo` y `minimo` va en `superRefine` y no en una regla del campo `maximo`?
 4. Explica en tres líneas, con tus palabras, qué cambiaste y por qué. Si no puedes, vuelve a la pista 1 antes de seguir.
 
 ## Cómo verificar
